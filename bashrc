@@ -113,27 +113,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### UberATC - Source Global Environment ##############################################
-
-# Source global environment variables, and aliases
-for bashrc_file in /etc/uberatc/bashrc.d/*.bashrc; do
-source ${bashrc_file}
-done
-
-# Place your own environment variables, aliases, customizations here
-# (you can "unset" a previous variable if needed)
-
-if [ ! -S ~/.ssh/ssh_auth_sock ]; then
-  eval `ssh-agent`
-  ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
-fi
-export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
-ssh-add -l | grep "The agent has no identities" && ssh-add
-
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
-export UBER_OWNER=jhoang@uber.com
-export UBER_LDAP_UID=jhoang
 export PYTHONPATH=$PYTHONPATH:/home/jhoang/dev/jhoang/gps
