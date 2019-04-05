@@ -7,8 +7,6 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ssh://code@code.int.uberatc.com/diffusion/VIMHIDL/vim-hidl-ftplugin.git', {'name': 'vim-hidl', 'rtp': 'vim-hidl/'}
-Plugin 'ssh://code@code.int.uberatc.com/diffusion/VIMHIDL/vim-hidl-ftplugin.git', {'name': 'atg-snippets', 'rtp': 'atg-snippets/'}
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -34,7 +32,6 @@ Plugin 'google/vim-codefmt'
 " Also add Glaive, which is used to configure codefmt's maktaba flags. See
 " `:help :Glaive` for usage.
 Plugin 'google/vim-glaive'
-Plugin 'ssh://code@code.int.uberatc.com/diffusion/VIMHIDL/vim-hidl-ftplugin.git'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 "" Track the engine.
@@ -68,7 +65,6 @@ Glaive codefmt
     \ clang_format_style='file'
 set wildignore+=*/bin/*
 set wildignore+=*/build/*
-let g:phabrowse_domains = ["https://code.int.uberatc.com"]
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
